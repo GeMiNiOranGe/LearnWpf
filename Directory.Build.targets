@@ -2,7 +2,7 @@
   <Target
     Name="husky"
     BeforeTargets="Restore;CollectPackageReferences"
-    Condition="'$(HUSKY)' != 0 and '$(IsCrossTargetingBuild)' == 'true'"
+    Condition="'$(HUSKY)' != 0 and !Exists('$(SolutionDir).husky/_/husky.sh')"
   >
     <Exec
       Command="dotnet tool restore"
