@@ -9,5 +9,44 @@
   Width="800"
   Height="450"
   mc:Ignorable="d">
-  <Grid />
+  <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Border
+      Padding="48,16"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Center"
+      Background="Aqua"
+      BorderBrush="#FF000000"
+      BorderThickness="5"
+      CornerRadius="16"
+      MouseDown="Border_MouseDown"
+      MouseUp="Border_MouseUp">
+      <TextBlock
+        x:Name="messageTextBlock"
+        Background="Gray"
+        FontSize="48"
+        MouseDown="MessageTextBlock_MouseDown"
+        MouseUp="MessageTextBlock_MouseUp"
+        Text="Hello world" />
+    </Border>
+
+    <TextBlock
+      Margin="0,16,0,0"
+      HorizontalAlignment="Center"
+      FontSize="14">
+      Click to open<Run />
+      <Hyperlink NavigateUri="https://www.google.com" RequestNavigate="Hyperlink_RequestNavigate">
+        <Span FontFamily="Comic Sans MS">
+          <Bold>
+            <Italic>
+              Google
+            </Italic>
+          </Bold>
+        </Span>
+      </Hyperlink>
+    </TextBlock>
+
+    <TextBlock TextTrimming="CharacterEllipsis">
+      This text will overflow off the screennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn - Hello again
+    </TextBlock>
+  </StackPanel>
 </Window>
