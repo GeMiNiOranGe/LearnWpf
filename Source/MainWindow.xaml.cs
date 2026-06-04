@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 
 namespace Source;
 
@@ -15,5 +15,10 @@ public partial class MainWindow : Window
     private void MessageButton_Click(object sender, RoutedEventArgs e)
     {
         mainFrame.Content = new MessagePage();
+    }
+
+    private void LoginButton_Click(object sender, RoutedEventArgs e)
+    {
+        mainFrame.Content = new LoginPage();
     }
 }

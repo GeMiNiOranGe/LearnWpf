@@ -20,6 +20,10 @@
         x:Name="messageButton"
         Click="MessageButton_Click"
         Content="Message page" />
+      <Button
+        x:Name="loginButton"
+        Click="LoginButton_Click"
+        Content="Login page" />
     </StackPanel>
 
     <Frame x:Name="mainFrame" Grid.Column="1" />
