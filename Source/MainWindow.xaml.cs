@@ -21,4 +21,9 @@ public partial class MainWindow : Window
     {
         mainFrame.Content = new LoginPage();
     }
+
+    private void BindingButton_Click(object sender, RoutedEventArgs e)
+    {
+        mainFrame.Content = new BindingPage();
+    }
 }
