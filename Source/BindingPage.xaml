@@ -19,10 +19,10 @@
     <TextBox x:Name="windowHeightTextBox" />
 
     <TextBlock x:Name="bindingPageWidthTextBlock" Text="Binding page width" />
-    <TextBox x:Name="bindingPageWidthTextBox" Text="{Binding ElementName=bindingPage, Path=Width}" />
+    <TextBox x:Name="bindingPageWidthTextBox" Text="{Binding ElementName=bindingPage, Path=ActualWidth, Mode=OneWay}" />
 
     <TextBlock x:Name="bindingPageHeightTextBlock" Text="Binding page height" />
-    <TextBox x:Name="bindingPageHeightTextBox" Text="{Binding ElementName=bindingPage, Path=Height}" />
+    <TextBox x:Name="bindingPageHeightTextBox" Text="{Binding ElementName=bindingPage, Path=ActualHeight, Mode=OneWay}" />
 
     <TextBlock x:Name="sourceTextBlock" Text="Source message" />
     <TextBox x:Name="sourceTextBox" />
