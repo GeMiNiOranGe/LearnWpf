@@ -31,4 +31,9 @@ public partial class MainWindow : Window
     {
         mainFrame.Content = new BasicItemsControlPage();
     }
+
+    private void ListViewButton_Click(object sender, RoutedEventArgs e)
+    {
+        mainFrame.Content = new ListViewPage();
+    }
 }

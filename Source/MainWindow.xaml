@@ -1,4 +1,4 @@
-﻿<Window
+<Window
   x:Class="Source.MainWindow"
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -32,6 +32,10 @@
         x:Name="basicItemsControlButton"
         Click="BasicItemsControlButton_Click"
         Content="Basic items control page" />
+      <Button
+        x:Name="listViewButton"
+        Click="ListViewButton_Click"
+        Content="List view page" />
     </StackPanel>
 
     <Frame x:Name="mainFrame" Grid.Column="1" />

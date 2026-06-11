@@ -1,0 +1,128 @@
+<Page
+  x:Class="Source.ListViewPage"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:local="clr-namespace:Source"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  Title="ListViewPage"
+  d:DesignHeight="450"
+  d:DesignWidth="800"
+  mc:Ignorable="d">
+  <StackPanel>
+    <TextBlock Text="Users" />
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="auto" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="auto" />
+      </Grid.ColumnDefinitions>
+
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="8" />
+        <RowDefinition Height="auto" />
+      </Grid.RowDefinitions>
+
+      <TextBlock
+        Grid.Row="0"
+        Grid.Column="0"
+        Margin="0,0,4,0"
+        VerticalAlignment="Center"
+        Text="Filter by:" />
+      <TextBox
+        x:Name="filterByTextBox"
+        Grid.Row="0"
+        Grid.Column="1"
+        Grid.ColumnSpan="2"
+        TextChanged="FilterByTextBox_TextChanged" />
+
+      <TextBlock
+        Grid.Row="2"
+        Grid.Column="0"
+        Margin="0,0,4,0"
+        VerticalAlignment="Center"
+        Text="Group by:" />
+      <ComboBox
+        x:Name="groupByComboBox"
+        Grid.Row="2"
+        Grid.Column="1"
+        SelectionChanged="GroupByComboBox_SelectionChanged">
+        <ComboBoxItem>Gender</ComboBoxItem>
+        <ComboBoxItem>AgeGroup</ComboBoxItem>
+      </ComboBox>
+      <Button
+        Grid.Row="2"
+        Grid.Column="2"
+        Click="ResetGroupButton_Click"
+        Content="Reset group" />
+    </Grid>
+
+    <ListView x:Name="usersListView">
+      <ListView.Resources>
+        <Style TargetType="GridViewColumnHeader">
+          <Setter Property="HorizontalContentAlignment" Value="Left" />
+        </Style>
+      </ListView.Resources>
+
+      <ListView.View>
+        <GridView>
+          <GridViewColumn DisplayMemberBinding="{Binding FullName}">
+            <GridViewColumnHeader
+              Click="GridViewColumnHeader_Click"
+              Content="Full name"
+              Tag="FullName" />
+          </GridViewColumn>
+
+          <GridViewColumn DisplayMemberBinding="{Binding Age}">
+            <GridViewColumnHeader
+              Click="GridViewColumnHeader_Click"
+              Content="Age"
+              Tag="Age" />
+          </GridViewColumn>
+
+          <GridViewColumn DisplayMemberBinding="{Binding Gender}">
+            <GridViewColumnHeader
+              Click="GridViewColumnHeader_Click"
+              Content="Gender"
+              Tag="Gender" />
+          </GridViewColumn>
+
+          <GridViewColumn DisplayMemberBinding="{Binding AgeGroup}">
+            <GridViewColumnHeader
+              Click="GridViewColumnHeader_Click"
+              Content="Age group"
+              Tag="AgeGroup" />
+          </GridViewColumn>
+
+          <GridViewColumn DisplayMemberBinding="{Binding Email}">
+            <GridViewColumnHeader
+              Click="GridViewColumnHeader_Click"
+              Content="Email"
+              Tag="Email" />
+          </GridViewColumn>
+        </GridView>
+      </ListView.View>
+
+      <ListView.GroupStyle>
+        <GroupStyle>
+          <GroupStyle.HeaderTemplate>
+            <DataTemplate>
+              <TextBlock FontWeight="Bold" Text="{Binding Name}" />
+            </DataTemplate>
+          </GroupStyle.HeaderTemplate>
+        </GroupStyle>
+      </ListView.GroupStyle>
+    </ListView>
+
+    <StatusBar>
+      <StatusBarItem>
+        <TextBlock x:Name="groupStatusTextBlock" />
+      </StatusBarItem>
+      <Separator />
+      <StatusBarItem>
+        <TextBlock x:Name="sortStatusTextBlock" />
+      </StatusBarItem>
+    </StatusBar>
+  </StackPanel>
+</Page>
