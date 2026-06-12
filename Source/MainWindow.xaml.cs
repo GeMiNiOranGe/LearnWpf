@@ -36,4 +36,9 @@ public partial class MainWindow : Window
     {
         mainFrame.Content = new ListViewPage();
     }
+
+    private void TriggerButton_Click(object sender, RoutedEventArgs e)
+    {
+        mainFrame.Content = new TriggerPage();
+    }
 }

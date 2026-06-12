@@ -36,6 +36,10 @@
         x:Name="listViewButton"
         Click="ListViewButton_Click"
         Content="List view page" />
+      <Button
+        x:Name="TriggerButton"
+        Click="TriggerButton_Click"
+        Content="Trigger page" />
     </StackPanel>
 
     <Frame x:Name="mainFrame" Grid.Column="1" />
