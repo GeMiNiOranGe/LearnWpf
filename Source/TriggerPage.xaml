@@ -97,5 +97,88 @@
         </Style>
       </TextBlock.Style>
     </TextBlock>
+
+    <Rectangle
+      Height="4"
+      Margin="0,8"
+      Fill="Black" />
+
+    <!--  Multiple data trigger  -->
+    <StackPanel HorizontalAlignment="Center">
+      <TextBlock
+        HorizontalAlignment="Center"
+        FontSize="28"
+        Text="Check both checkboxes to see the magic!" />
+      <CheckBox
+        x:Name="firstCheckBox"
+        HorizontalAlignment="Center"
+        Content="The checkbox 1" />
+      <CheckBox
+        x:Name="secondCheckBox"
+        HorizontalAlignment="Center"
+        Content="The checkbox 2" />
+      <TextBlock
+        Margin="0,16,0,0"
+        HorizontalAlignment="Center"
+        FontSize="28">
+        <TextBlock.Style>
+          <Style TargetType="TextBlock">
+            <Setter Property="Text" Value="A red text" />
+            <Setter Property="Foreground" Value="red" />
+            <Style.Triggers>
+              <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                  <Condition Binding="{Binding ElementName=firstCheckBox, Path=IsChecked}" Value="True" />
+                  <Condition Binding="{Binding ElementName=secondCheckBox, Path=IsChecked}" Value="True" />
+                </MultiDataTrigger.Conditions>
+
+                <!--  Note: you may not need `MultiDataTrigger.Setters` here  -->
+                <Setter Property="Text" Value="A green text" />
+                <Setter Property="Foreground" Value="Green" />
+              </MultiDataTrigger>
+            </Style.Triggers>
+          </Style>
+        </TextBlock.Style>
+      </TextBlock>
+    </StackPanel>
+
+    <Rectangle
+      Height="4"
+      Margin="0,8"
+      Fill="Black" />
+
+    <!--  Multiple trigger  -->
+    <TextBox
+      HorizontalAlignment="Center"
+      FontSize="28"
+      Text="Focus and hover your mouse over this text box">
+      <TextBox.Style>
+        <Style TargetType="TextBox">
+          <Style.Triggers>
+            <MultiTrigger>
+              <MultiTrigger.Conditions>
+                <Condition Property="IsMouseOver" Value="True" />
+                <Condition Property="IsFocused" Value="True" />
+              </MultiTrigger.Conditions>
+
+              <MultiTrigger.Setters>
+                <Setter Property="Background" Value="LightGreen" />
+              </MultiTrigger.Setters>
+            </MultiTrigger>
+
+            <MultiTrigger>
+              <MultiTrigger.Conditions>
+                <Condition Property="IsMouseOver" Value="True" />
+                <Condition Property="IsFocused" Value="False" />
+              </MultiTrigger.Conditions>
+
+              <MultiTrigger.Setters>
+                <Setter Property="Background" Value="LightPink" />
+              </MultiTrigger.Setters>
+            </MultiTrigger>
+          </Style.Triggers>
+        </Style>
+      </TextBox.Style>
+    </TextBox>
   </StackPanel>
 </Page>
