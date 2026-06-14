@@ -41,4 +41,9 @@ public partial class MainWindow : Window
     {
         mainFrame.Content = new TriggerPage();
     }
+
+    private void CommandButton_Click(object sender, RoutedEventArgs e)
+    {
+        mainFrame.Content = new CommandPage();
+    }
 }

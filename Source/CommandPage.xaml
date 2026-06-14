@@ -1,0 +1,119 @@
+<Page
+  x:Class="Source.CommandPage"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:local="clr-namespace:Source"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  Title="CommandPage"
+  d:DesignHeight="450"
+  d:DesignWidth="800"
+  mc:Ignorable="d">
+  <Page.CommandBindings>
+    <CommandBinding
+      CanExecute="NewCommand_CanExecute"
+      Command="ApplicationCommands.New"
+      Executed="NewCommand_Executed" />
+    <!--
+    <CommandBinding
+      CanExecute="CutCommand_CanExecute"
+      Command="ApplicationCommands.Cut"
+      Executed="CutCommand_Executed" />
+    <CommandBinding
+      CanExecute="CopyCommand_CanExecute"
+      Command="ApplicationCommands.Copy"
+      Executed="CopyCommand_Executed" />
+    <CommandBinding
+      CanExecute="PasteCommand_CanExecute"
+      Command="ApplicationCommands.Paste"
+      Executed="PasteCommand_Executed" />
+    -->
+    <CommandBinding
+      CanExecute="ShowMessageBoxCommand_CanExecute"
+      Command="local:MyCommand.ShowMessageBox"
+      Executed="ShowMessageBoxCommand_Executed" />
+  </Page.CommandBindings>
+
+  <StackPanel>
+    <!--  Level 1  -->
+    <Button Command="ApplicationCommands.New" Content="New (MessageBox)" />
+
+    <Rectangle
+      Height="4"
+      Margin="0,8"
+      Fill="Black" />
+
+    <!--  Level 2  -->
+    <!--
+    <DockPanel>
+      <WrapPanel Margin="4,0" DockPanel.Dock="Top">
+        <Button
+          Width="64"
+          Command="ApplicationCommands.Cut"
+          Content="Cu_t" />
+        <Button
+          Width="64"
+          Margin="4,0"
+          Command="ApplicationCommands.Copy"
+          Content="_Copy" />
+        <Button
+          Width="64"
+          Command="ApplicationCommands.Paste"
+          Content="_Paste" />
+      </WrapPanel>
+      <TextBox
+        x:Name="editorTextBox1"
+        Margin="4"
+        AcceptsReturn="True" />
+    </DockPanel>
+
+    <Rectangle
+      Height="4"
+      Margin="0,8"
+      Fill="Black" />
+    -->
+
+    <!--  Level 3  -->
+    <DockPanel>
+      <WrapPanel Margin="4,0" DockPanel.Dock="Top">
+        <Button
+          Width="64"
+          Command="ApplicationCommands.Cut"
+          CommandTarget="{Binding ElementName=editorTextBox2}"
+          Content="Cu_t" />
+        <Button
+          Width="64"
+          Margin="4,0"
+          Command="ApplicationCommands.Copy"
+          CommandTarget="{Binding ElementName=editorTextBox2}"
+          Content="_Copy" />
+        <Button
+          Width="64"
+          Command="ApplicationCommands.Paste"
+          CommandTarget="{Binding ElementName=editorTextBox2}"
+          Content="_Paste" />
+      </WrapPanel>
+      <TextBox
+        x:Name="editorTextBox2"
+        Margin="4"
+        AcceptsReturn="True" />
+    </DockPanel>
+
+    <Rectangle
+      Height="4"
+      Margin="0,8"
+      Fill="Black" />
+
+    <!--  Custom command  -->
+    <Menu>
+      <MenuItem Header="_Command">
+        <MenuItem Command="local:MyCommand.ShowMessageBox" Header="Show _message box" />
+      </MenuItem>
+    </Menu>
+
+    <Button
+      Margin="4"
+      Command="local:MyCommand.ShowMessageBox"
+      Content="Show message box" />
+  </StackPanel>
+</Page>
