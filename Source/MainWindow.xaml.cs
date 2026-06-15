@@ -46,4 +46,9 @@ public partial class MainWindow : Window
     {
         mainFrame.Content = new CommandPage();
     }
+
+    private void ObservableButton_Click(object sender, RoutedEventArgs e)
+    {
+        mainFrame.Content = new ObservablePage();
+    }
 }

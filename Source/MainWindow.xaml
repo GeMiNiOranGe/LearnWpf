@@ -44,6 +44,10 @@
         x:Name="commandButton"
         Click="CommandButton_Click"
         Content="Command page" />
+      <Button
+        x:Name="observableButton"
+        Click="ObservableButton_Click"
+        Content="Observable page" />
     </StackPanel>
 
     <Frame x:Name="mainFrame" Grid.Column="1" />
