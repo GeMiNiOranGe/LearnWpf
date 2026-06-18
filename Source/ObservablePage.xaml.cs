@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 using System.Windows.Data;
 
@@ -27,13 +28,16 @@ public partial class ObservablePage : Page, INotifyPropertyChanged
         set
         {
             _dataValue = value;
-            OnPropertyChanged(nameof(DataValue));
+            OnPropertyChanged();
         }
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    protected void OnPropertyChanged(string propertyName)
+    // use CallerMemberName to automatically get the property name of the caller
+    protected void OnPropertyChanged(
+        [CallerMemberName] string? propertyName = null
+    )
     {
         PropertyChanged?.Invoke(
             this,
